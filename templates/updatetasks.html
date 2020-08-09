@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+<!--Block content to extend content of base.html-->
+{% block content %}
+
+<!--Allows flash messages to be displayed at the top of the screen-->
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+            <p class="flash-messages" id="current-message">{{ msg }}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="standard-heading title-margin-top">Edit my task</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 text-center">
+            <!--Update form contains previous task values as default until updated by user-->
+            <form action="{{ url_for('update_tasks', task_id=task._id) }}" method="POST">
+                <div class="form-group">
+                    <input id="task_title" name="task_title" type="text" class="form-control form-control-edit" value="{{ task.task_title }}" required>
+                </div>
+                <div class="form-group">
+                    <input id="task_info" name="task_info" type="text" class="form-control form-control-edit" value="{{ task.task_info }}" required>
+                </div>
+                <div class="form-group">
+                    <input id="delegation" name="delegation" type="text" class="form-control form-control-edit" value="{{ task.delegation }}" required>
+                </div>
+                <div class="form-group">
+                    <div class="datepicker date input-group">
+                        <input type="text" class="form-control form-control-edit" id="task_due" name="task_due" placeholder="Due date" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text px-4 calender-icon"><i class="far fa-calendar-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <input class="task-btn edit-btn title-margin-top" type="submit" value="Edit Task">
+            </form>
+        </div>
+        <div class="col-12 col-md-6">
+            <img class="img-fluid task-image" src="{{url_for('static', filename='/images/' + 'undraw_order_delivered.png')}}" alt="Creating tasks together" />
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center standard-box lower-box-margin responsive-lower-margin">
+            <h4 class="smaller-heading">Return to My Tasks</h4>   
+            <a class="btn standard-sign-up-btn" id="redirect-overview" href="{{url_for('overview')}}">My Tasks</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

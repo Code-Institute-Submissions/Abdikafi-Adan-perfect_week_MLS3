@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Roboto:wght@100;300;400;500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap');
 /*----------------------------------------------------------------------------### START OF: General project styles ### */
 
 html,
@@ -7,7 +7,10 @@ body {
     margin:0;
     padding:0;
     height:100%;
+background: #fafafa;
+
 }
+
 
 /*ID used to stick footer to bottom of all html pages*/
 #container {
@@ -22,50 +25,39 @@ body {
 }
 
 .standard-box {
-    border: 6px solid #DCE3ED;
+    
     margin-bottom: 50px;
     padding-bottom: 10px;
 }
 
-.image-margins {
-    margin-bottom: 200px;
-}
-
 .lower-box-margin {
     margin-top: 20px;
-    position: absolute;
-    bottom: 20%;
-    right: -160px;
+    position: inherit;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 .container {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
-    margin-right: inherit;
+    margin-right: auto;
     margin-left: auto;
 }
 
 .flash-messages{
     padding: 1% 0% 1% 2%;
-    background-color: #F6FDF8;
-    color: #3A2E39;
-    font-family: 'Roboto', sans-serif;
+    background-color: rgb(125, 133, 127);
+    color: rgb(19, 17, 19);
+    font-family: 'Lora', serif;
     font-weight: 300;
 }
-/*----------------------------------------------------Background colour*/
-
-.navbar-bg {
-    opacity: 100%;
-    min-height: 100px;
-}
-
 
 /*----------------------------------------------------Font styling*/
 
 .standard-heading {
     color: #3A2E39;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Quicksand', 'sans-serif';
     font-weight: 300;
     font-size: 30px;
     line-height: 45px;
@@ -74,7 +66,7 @@ body {
 
 .smaller-heading {
     color: #3A2E39;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lora', serif;
     font-style: normal;
     font-weight: 200;
     font-size: 25px;
@@ -82,7 +74,7 @@ body {
 }
 
 .share-title {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Lora', serif;
     font-size: 20px;
     font-weight: 500;
     color: #3A2E39;
@@ -93,7 +85,7 @@ body {
 }
 
 .share-text {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Lora', serif;
     font-size: 15px;
     font-weight: 300;
     color: #3A2E39;
@@ -117,24 +109,15 @@ body {
     line-height: 30px;
 }
 
-.standard-divider {
-    width: 55%;
-    height: 0px;
-    margin: 0 auto;
-    border: 1px solid #3A2E39;
-    margin-bottom: 50px;
-    margin-top: 40px;
-    opacity: 40%;
-}
 
 /*----------------------------------------------------Button styling*/
 
 .standard-sign-up-btn {
-    background-color: rgb(14, 192, 73);
-    border: 1px solid #F9F6EC;
+    background-color: rgb(42, 240, 108);
+    border: 1px solid rgb(8, 7, 1);
     color: rgb(17, 17, 16);
-    border-radius: 20px;
-    font-family: 'Quicksand', sans-serif;
+    border-radius: 50px;
+    font-family: 'Lora', serif;
     font-size: 1rem;
     font-weight: 500;
 }
@@ -142,9 +125,9 @@ body {
 .sign-in-btn {
     background-color: rgb(14, 192, 73);
     color: rgb(17, 17, 17);
-    border: 1px solid #A7E8BD;
+    border: 1px solid rgb(8, 7, 1);
     border-radius: 20px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Lora', serif;
     font-size: 1rem;
     font-weight: 500;
     padding-left: 10px;
@@ -156,34 +139,13 @@ body {
     width: 125px;
 }
 
-.sign-in-btn:hover, #redirect-signin-btn:hover {
-    color: #F9F6EC;
-    background-color: #7DDE9D;
-    border: 1px solid #7DDE9D;
-}
 
 
-#nav-btn, #redirect-signup-btn, #form-signup-btn, #sign-out-btn, #footer-btn {
-    color: #F9F6EC;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 95px;
-    text-decoration: none;
-}
-
-.standard-sign-up-btn:hover, #nav-btn:hover, #redirect-signup-btn:hover, #form-signup-btn:hover, #sign-out-btn:hover {
-    background-color: #E99B9D;
-    color: #F9F6EC;
-}
-
-#sign-out-btn {
-    width: 103px;
-}
 
 .task-btn {
-    color: #F9F6EC;
+    color: rgb(247, 192, 14);
     border-radius: 20px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Lora', serif;
     font-size: 1rem;
     font-weight: 500;
     min-width: 60px;
@@ -199,109 +161,72 @@ body {
     padding-bottom: 3px;
     vertical-align: unset;
     font-size: 25px;
+    text-decoration-style: none;
 }
 
-.expand-btn:hover {
-    color: #4785C2;
-}
 
 .complete-btn {
-    background-color: #A7E8BD;
-    border: 1px solid #A7E8BD;
+    background-color: rgb(112, 240, 38);
+    border: 1px solid rgb(112, 240, 38);
 }
 
-.complete-btn:hover {
-    background-color: #7DDE9D;
-    border: 1px solid #7DDE9D;
-    color: #F9F6EC;
-}
+
 
 .edit-btn {
-    background-color: #FFC885;
-    border: 1px solid #FFC885;
+    background-color: rgb(228, 241, 45);
+    border: 1px solid rgb(228, 241, 45);
 }
 
-.edit-btn:hover {
-    background-color: #FFB65C;
-    border: 1px solid #FFB65C;
-    color: #F9F6EC;
-}
 
 .delete-btn {
-    background-color: #DCE3ED;
-    border: 1px solid #DCE3ED;
+    background-color: rgb(228, 8, 8);
+    border: 1px solid rgb(228, 8, 8);
 }
 
-.delete-btn:hover {
-    background-color: #BCC9DC;
-    border: 1px solid #BCC9DC;
-    color: #F9F6EC;
-}
+
 
 .complete-btn-modal {
-    background-color: #A7E8BD;
-    border: 1px solid #A7E8BD;
-    color: #F9F6EC;
-}
-
-.complete-btn-modal:hover {
-    background-color: #7DDE9D;
-    border: 1px solid #7DDE9D;
-    color: #F9F6EC;
+    background-color: rgb(112, 240, 38);
+    border: 1px solid  rgb(112, 240, 38);
+    color: #fff;
 }
 
 .delete-btn-modal {
-    background-color: #DCE3ED;
-    border: 1px solid #DCE3ED;
-    color: #F9F6EC;
-}
-
-.delete-btn-modal:hover {
-    background-color: #BCC9DC;
-    border: 1px solid #BCC9DC;
-    color: #F9F6EC;
+    background-color: rgb(182, 9, 9);
+    border: 1px solid rgb(182, 9, 9);
+    color: #fff;
 }
 /*----------------------------------------------------Navbar styling*/
 
 .logo-design {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Lora', serif;
     font-size: 35px;
     font-weight: 600;
-    color: #A7E8BD;
-    border: 4px solid #A7E8BD;
-    border-radius: 20px;
-    text-decoration: none;
+    color:#212529;
     padding-right: 10px;
     padding-left: 10px;
 }
 
-.logo-design:hover {
-    color: #EFB7B9;
-    text-decoration: none;
+.navbar-bg {
+    opacity: 100%;
+    min-height: 100px;
+    background-color: #79828c;
 }
 
+
+
 .navbar-light .navbar-nav .nav-link {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Lora', serif;
     font-size: 20px;
     font-weight: 500;
-    color: #3A2E39;
+    color: #08090a;
     padding-left: 3px;
     padding-right: 3px;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
-    color: #EFB7B9;
-}
-
-/*Changes the color of the navbar on scroll*/
-.sticky-top.scrolled {
-  background-color: #F6FDF8 !important;
-  transition: background-color 25ms linear;
-}
-
 .active-menu {
-    border-bottom: 2px solid #A7E8BD !important;
-    padding-bottom: 0.5px !important;
+    border-bottom: 2px solid rgb(7, 6, 0);
+    padding-bottom: 0.5px ;
 }
 
 /*----------------------------------------------------Footer styling*/
@@ -352,14 +277,11 @@ transition: all 0.35s ease-in-out;
     font-weight: 300;
     color: #fafafa;
 }
-
-
-/*----------------------------------------------------------------------------### END OF: General project styles ### */
 /*----------------------------------------------------------------------------### START OF: index.html ### */
 
 
 .main-titles {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lora', serif;
     font-style: normal;
     font-weight: 100;
     font-size: 30px;
@@ -372,42 +294,17 @@ transition: all 0.35s ease-in-out;
     display: none;
     width:200px;
 }
-.carousel-item>img{
-    max-height: 600px;
-}
-
 .carousel-header {
     margin-top: 80px;
     margin-bottom: 10px;
-}
-
-.carousel-image-style {
-    border: 6px solid #DCE3ED;
-    padding: 20%;
-    padding-top: 2%;
-}
-
-.carousel-icons-style {
-    color: #DCE3ED;
-    font-size: 40px;
-}
-
-.carousel-indicators li {
-    background-color: #DCE3ED;
-}
-
-.carousel-indicators .active {
-  background-color: #BCC9DC;
 }
 
 .sm-screen-steps {
     display: none;
 }
 
-/*----------------------------------------------------------------------------### END OF: index.html ### */
 /*----------------------------------------------------------------------------### START OF: signin.html & signup.html ### */
 
-/* Form control guidance courtesy of https://stackoverflow.com/questions/14820952/change-bootstrap-input-focus-blue-glow */
 .form-control:focus{   
     border-color: #A7E8BD;
     box-shadow: 0 1px 1px #A7E8BD inset, 0 0 8px #A7E8BD;
@@ -436,8 +333,7 @@ transition: all 0.35s ease-in-out;
     cursor: pointer;
 }
 
-/*----------------------------------------------------------------------------### END OF: signin.html & signup.html ### */
-/*----------------------------------------------------------------------------### START OF: overview.html ### */
+/*----------------------------------------------------------------------------### overview.html ### */
 
 ul p {
     margin-bottom: 0px;
@@ -452,11 +348,6 @@ ul p {
     box-shadow: none;
 }
 
-.overview-image {
-    padding-top: 0px;
-    margin-top: 0px;
-    float: right;
-}
 
 .task-display {
     display: inline-block;
@@ -467,24 +358,15 @@ ul p {
 }
 
 .complete-tasks {
-    color: #A7E8BD;
+    color: rgb(12, 175, 66);
     font-size: 25px;
 }
 
-.extra-list-padding {
-    padding-left: 50px;
-}
 
-.image_position {
-    display: none;
+.remove-bullets{
+    list-style: none; 
 }
-
-.modal-footer, .modal-header {
-    border: none;
-}
-
-/*----------------------------------------------------------------------------### END OF: overview.html ### */
-/*----------------------------------------------------------------------------### START OF: updatetasks.html ### */
+/*----------------------------------------------------------------------------### updatetasks.html ### */
 
 .form-control-edit:focus {
     border-color: #FFC885;
@@ -492,8 +374,6 @@ ul p {
     outline: 0 none;
 }
 
-/*----------------------------------------------------------------------------### END OF: updatetasks.html ### */
-/*----------------------------------------------------------------------------### START OF: media queries ### */
 /*----------------------------------------------------General app media queries*/
 
 @media screen and (max-width: 422px){
@@ -504,8 +384,8 @@ ul p {
 
 @media screen and (max-width: 767px){
     .active-menu{
-        border: none !important;
-        color: #7DDE9D !important;
+        border: none;
+        color: rgb(2, 17, 7) ;
     }
     .nav-item {
         text-align: right;
@@ -515,16 +395,12 @@ ul p {
     }
 }
 
-/*----------------------------------------------------index.html media queries*/
 
 @media screen and (max-width: 767px){
-    .carousel{
-        display: none !important;
-    }
-    
+ 
     .sm-screen-steps {
     display: inline-block !important;
-    border: 6px solid #DCE3ED;
+    border: 6px solid rgb(5, 6, 7);
     padding-bottom: 10px;
     padding-top: 10px;
     }
@@ -539,9 +415,6 @@ ul p {
         display: block;
     }
 }
-
-
-/*----------------------------------------------------overview.html media queries*/
 
 @media screen and (max-width: 767px){
     .overview-padding-sm-screens{
@@ -559,15 +432,12 @@ ul p {
     }
 }
 
-/*----------------------------------------------------newtasks.html media queries*/
 
 @media screen and (max-width: 767px){
     .task-image{
         margin-top: 50px;
     }
 }
-
-/*----------------------------------------------------signup.html/signin.html media queries*/
 
 @media screen and (max-width: 767px){
     .alternative-prompt{

@@ -5,7 +5,7 @@
 
 <!--Allows flash messages to be displayed at the top of the screen-->
 {% with messages = get_flashed_messages() %}
-    {% if messages %}
+    {% if messages %} 
         {% for msg in messages %}
             <p class="flash-messages" id="current-message">{{ msg }}</p>
         {% endfor %}
@@ -15,7 +15,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h3 class="standard-heading title-margin-top">Add a new task</h3>
+            <h3 class="standard-heading title-margin-top">Add a new plan to  do </h3>
         </div>
     </div>
     <div class="row">
@@ -23,14 +23,14 @@
             <!--Form collects user's inputted data to add it to the database when form is posted-->
             <form action="{{ url_for('add_task') }}" method="POST">
                 <div class="form-group">
-                    <input id="task_title" name="task_title" type="text" class="form-control" placeholder="Task Name" required>
+                <label for="plans_name">What's the plan</label>
+                    <input id="task_title" name="task_title" type="text" class="form-control" placeholder="Name" required>
                 </div>
                 <div class="form-group">
-                    <input id="task_info" name="task_info" type="text" class="form-control" placeholder="Extra Information" required>
+                <label for="description_the_week_plan">Description the week plan or Task to do </label>
+                    <textarea id="task_info" name="task_info" type="text" class="form-control" placeholder="Extra Information" required > </textarea>
                 </div>
-                <div class="form-group">
-                    <input id="delegation" name="delegation" type="text" class="form-control" placeholder="Delegated to" required>
-                </div>
+               
                 <div class="form-group">
                     <div class="datepicker date input-group">
                         <input type="text" class="form-control" id="task_due" name="task_due" placeholder="Due date" required>
@@ -43,15 +43,13 @@
                 <input class="task-btn sign-in-btn title-margin-top" type="submit" value="Add Task">
             </form>
         </div>
-        <div class="col-12 col-md-6">
-            <img class="img-fluid task-image" src="{{url_for('static', filename='/images/' + 'undraw_happy_announcement.png')}}" alt="Creating tasks together" />
-        </div>
+        
     </div>
 </div>
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center standard-box lower-box-margin responsive-lower-margin">
-            <h4 class="smaller-heading">Return to My Tasks</h4>   
+            <h4 class="smaller-heading">Return to My Plans</h4>   
             <a class="btn standard-sign-up-btn" id="redirect-overview" href="{{url_for('overview')}}">My Tasks</a>
         </div>
     </div>

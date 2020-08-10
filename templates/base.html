@@ -19,7 +19,7 @@
     <title>Perfect Week</title>
 </head>
 <body>
-    <div id="container">
+    <div id="container"> 
         <header class="sticky-top">
             <!--Basic navbar structure from Bootstrap with additional styling-->
             <nav class="navbar navbar-expand-md navbar-light navbar-bg">
@@ -144,7 +144,21 @@
    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
 
     <!--Local JavaScript files-->
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+    $(document).ready(function(){
+    // flash message 
+    $("#current-message").delay(5000).fadeOut("slow");
+
+    // Function  for the datepicker 
+    $(function () {
+        $('.datepicker').datepicker({
+            todayHighlight: true,
+            clearBtn: true,
+            format: "dd/mm/yyyy"
+        });
+    });
+
+    </script>
 
 </body>
 </html>

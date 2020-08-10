@@ -13,28 +13,23 @@
     {% endif %}
 {% endwith %}
 
-<!--Welcome message uses the user's own username to personalize the text-->
+<!--Welcome message to the user with there name using session.username  -->
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<h3 class="standard-heading title-margin-top">Welcome {{ session.username }}! <br> Here's an overview of your moving tasks</h3>
+			<h3 class="standard-heading title-margin-top">Welcome {{ session.username }}! <br> Here's an overview of your plans for the week</h3>
 		</div>
 	</div>
 </div>
 <div class="container">
-    <div class="row">
-        <!--The complete, pending and empty list titles are brought over from the app.py file through jinja-->
-	    <div class="col-12 text-center">
-		    <h4 class="smaller-heading">{{ empty_list | safe }}</h4>
-	    </div>
+    <div class="row">	   
 	    <div class="col-12">
-		    <h4 class="smaller-heading"><strong>{{ pending_tasks| safe }} </strong></h4>
+		    <h4 class="smaller-heading"><strong> The plans for the week</strong></h4>
 	    </div>
 	    <div class="col-12 col-lg-6">
-        <!--The following source was used as a guide for list item: https://www.geeksforgeeks.org/todo-list-app-using-flask-python/-->
 		{% for task in tasks %}
             {% if not task.complete %}
-                <ul class="remove-bullets overview-padding-sm-screens">
+                <ul class="overview-padding-sm-screens">
                     <li>
                         <div class="task-display">
                             <a class="btn toggle-display-btn" data-toggle="collapse" href="#collapseTask{{ task._id }}" role="button" aria-expanded="false" aria-controls="collapseTask{{ task._id }}">
@@ -42,17 +37,18 @@
                             </a>
                         </div>
                         <div class="task-display list-title">
-                            <p>{{task.task_title}}</p>
+                            <p><strong>{{task.task_title}}</strong>- {{task.task_due}}</p>
                         </div>
                         <div class="collapse" id="collapseTask{{ task._id }}">
+
+                        
                             <div class="card card-body">
-                                <ul class="list-text">
-                                    <li><strong>Extra information:</strong> {{task.task_info}}</li>
-                                    <li><strong>Delegated to:</strong> {{task.delegation}}</li>
+                                <ul class="list-text  card-body">
+                                    <li><strong>Description:</strong> {{task.task_info}}</li>
                                     <li><strong>Due date:</strong> {{task.task_due}}</li>
                                     <a class="btn task-btn complete-btn" href="{{url_for('complete_task', task_id=task._id)}}">Complete</a>
                                     <a class="btn task-btn edit-btn" href="{{url_for('update_tasks', task_id=task._id)}}">Edit</a>
-                                    <!--Button to launch Bootstrap modal which confirms if a user really wants to delete their task-->
+                                    <!--the Delete button -->
                                     <button type="button" class="btn task-btn delete-btn" data-toggle="modal" data-target="#deleteModal{{ task._id }}">Delete</button>
                                     <!-- Modal content-->
                                     <div class="modal fade" id="deleteModal{{ task._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -61,8 +57,9 @@
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 </div>
+                                                <!-- Makes sure that the wants to delete the compelete plan/task -->
                                                 <div class="modal-body">
-                                                    <h4 class="list-title text-center">Are you sure you want to delete this task?</h4>
+                                                    <h4 class="list-title text-center">Are you sure you want to delete this Plan?</h4>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn task-btn complete-btn-modal" data-dismiss="modal">No, let's keep it</button>
@@ -94,7 +91,7 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 </div>
                                 <div class="modal-body">
-                                    <h4 class="list-title text-center">Are you sure you want to delete this completed task?</h4>
+                                    <h4 class="list-title text-center">Are you sure you want to delete this completed plan?</h4>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn task-btn complete-btn-modal" data-dismiss="modal">No, let's keep it</button>
@@ -107,16 +104,14 @@
             </div>
 		    {% endfor %}
         </div>
-        <div class="col-12 col-lg-6">
-	        <img class="overview-image img-fluid{{ image_position }}" src="{{url_for('static', filename='/images/' + 'undraw_accepted_request.png')}}" alt="Writing a to do list" />
-        </div>
+    
     </div>
 </div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center standard-box lower-box-margin responsive-lower-margin">
-			<h4 class="smaller-heading">Thought of a new task to add?</h4>
-			<a class="btn sign-in-btn" id="redirect-signin-btn" href="{{url_for('new_task')}}">Add new task</a>
+			<h4 class="smaller-heading">Thought of a new Plan to add?</h4>
+			<a class="btn sign-in-btn" id="redirect-signin-btn" href="{{url_for('new_task')}}">Add new plan</a>
 		</div>
 	</div>
 </div>

@@ -1,13 +1,25 @@
 import os
-from flask import Flask, render_template, url_for, request, session, redirect, flash, Markup
-from flask_pymongo import PyMongo
+from flask import (
+    Flask,
+    render_template,
+    redirect,
+    request,
+    url_for,
+    session,
+    flash,
+    Markup
+)
+from bson.objectid import ObjectId
 import bcrypt
+from flask_pymongo import PyMongo
+
+if os.path.exists("env.py"):
+    import env
 
 app = Flask(__name__)
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.config['MONGO_DBNAME'] = 'MLS-projetDB'
 
-app.config['MONGO_DBNAME'] = 'mongologinexample'
-app.config["MONGO_URI"] = "mongodb+srv://king:vjf6sb86@myfirstcluster.zdtuv.mongodb.net/task_manager?retryWrites=true&w=majority"
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 mongo = PyMongo(app)
 tasks = mongo.db.tasks.find()
@@ -15,13 +27,13 @@ users = mongo.db.users
 
 
 
-# Routes user to index page as default
+# show the index as the starting site and introduces the use to the website
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html')
 
-# Routing for the sign in feature
+# the sign in feature and routes
 @app.route('/sign_in', methods=['POST', 'GET'])
 def sign_in():
     if request.method == "GET":
@@ -34,8 +46,7 @@ def sign_in():
             return redirect(url_for('overview'))
 
         return render_template('signin.html')
-    # This checks the returning user's details to see if they match
-    # what is stored in the DB
+
     elif request.method == "POST":
         login_user = users.find_one({'name': request.form['username']})
         # This checks to see if the hashed password in the form matches the
@@ -101,7 +112,7 @@ def sign_up():
 def logout():
     username = session['username']
     if 'username' in session:
-        # This removes the current username from the session
+        # This removes session 
         session.pop('username', None)
 
         flash(
@@ -121,17 +132,16 @@ def overview():
         return render_template('signup.html')
 
     tasks = list(mongo.db.tasks.find({"username": session["username"]}))
-    # Empty list to be filled below to prevent two calls to DB
+    # Adds completed tasks to completed list
     completed = []
 
     if tasks:
         for task in tasks:
-            # Adds completed tasks to the 'completed' list created above
+
             if task["complete"]:
                 completed.append(task)
         return render_template(
             'overview.html',
-            pending_tasks='Pending tasks:',
             completed_tasks='Complete tasks:',
             tasks=tasks,
             completed=completed)
@@ -154,7 +164,6 @@ def add_task():
         "username": username,
         "task_title": request.form.get("task_title"),
         "task_info": request.form.get("task_info"),
-        "delegation": request.form.get("delegation"),
         "task_due": request.form.get("task_due"),
         "complete": False
     }
@@ -174,11 +183,6 @@ def edit_task(task_id):
     return render_template('updatetasks.html', task=task)
 
 
-"""
-    Source used for reference for this function:
-    https://kb.objectrocket.com/mongo-db/how-to-update-a-mongodb-document-in-python-356
-"""
-
 
 # Function to update a user's task
 @app.route('/update_tasks/<task_id>', methods=['POST', 'GET'])
@@ -186,9 +190,7 @@ def update_tasks(task_id):
     # Redirects a user not in session to the signup page
     if 'username' not in session:
         return render_template('signup.html')
-
-    # Finds the task with matching id to prefill form with the user's
-    # previous values stored in the DB
+    # If user is in session continue to update the task
     username = session['username']
 
     if request.method == 'POST':
@@ -198,7 +200,6 @@ def update_tasks(task_id):
                 {"username": username,
                     "task_title": request.form.get("task_title"),
                     "task_info": request.form.get("task_info"),
-                    "delegation": request.form.get("delegation"),
                     "task_due": request.form.get("task_due"),
                     "complete": False}}
         )
@@ -206,14 +207,12 @@ def update_tasks(task_id):
         flash('Success, your task has been changed!')
         return redirect(url_for('overview', task=updating_task))
 
-    # This sets the form to the previous values if the user doesn't actually
-    # change the task content by posting it
     else:
         updating_task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
         return render_template('updatetasks.html', task=updating_task)
 
 
-# Function to mark tasks as complete
+# complete plan/task features
 @app.route('/complete_task/<task_id>', methods=['POST', 'GET'])
 def complete_task(task_id):
 
@@ -222,20 +221,18 @@ def complete_task(task_id):
         {"$set": {
             "complete": True}})
 
-    flash("Well done! You\'re one step closer to being ready to MoveOn.")
     return redirect(url_for('overview'))
 
 
-# Allows the user to delete a pending task from their list
+# Allows user to delete plan/task 
 @app.route('/delete_task/<task_id>')
 def delete_task(task_id):
     mongo.db.tasks.remove({'_id': ObjectId(task_id)})
 
-    flash("Your task has been deleted. Why not add another?")
     return redirect(url_for('overview'))
 
 
-# Allows a user to delete a completed task from their 'completed' list
+# Allows a user to delete a completed task from their completed list
 @app.route('/delete_complete_task/<complete_id>')
 def delete_complete_task(complete_id):
     mongo.db.tasks.remove({'_id': ObjectId(complete_id)})
@@ -244,6 +241,7 @@ def delete_complete_task(complete_id):
     return redirect(url_for('overview'))
 
 if __name__ == '__main__':
+    app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)

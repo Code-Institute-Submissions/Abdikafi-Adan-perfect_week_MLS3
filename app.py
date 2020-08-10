@@ -19,6 +19,7 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config['MONGO_DBNAME'] = 'MLS-projetDB'
+app.config["MONGO_URI"] = MONGO_URI
 
 
 mongo = PyMongo(app)
@@ -244,4 +245,4 @@ if __name__ == '__main__':
     app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=True)
+            debug=False)

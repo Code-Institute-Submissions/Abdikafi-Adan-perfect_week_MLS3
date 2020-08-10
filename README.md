@@ -80,7 +80,7 @@ I used the jQuery library to help write the JavaScript code used in this project
 
 ### To deploy the live website on GitHub Pages, I applied followed the following steps:
 * This project was developed using Gitpod as the chosen IDE and GitHub as a remote repository.
-* The deployed project can be viewed on the following link:
+* The deployed project can be viewed on the following link: http://perfect-week-mls3.herokuapp.com/index
 * Github repository link to this project: https://github.com/Abdikafi-Adan/perfect_week_MLS3
 
 ## Credits

@@ -4,15 +4,16 @@
 {% block nav_home %} active-menu {% endblock %}
 
 {% block content %} 
-<div class="container-fluid">
-    <div class="row index-main">
-        <div class="col-12 col-md-8 offset-md-1 main-titles title-margin-top">
+
+    <div class="row ">
+        <div class="col s12" >
             <h3 class="standard-heading text-md-left text-sm-center">What is the plan for this Week and how do you plan what to do a head of time ?</h3>
             <hr class="standard-divider sm-screen-divider"> 
             <h4 class="standard-heading text-md-left text-sm-center">Well You have come to the perfekt webbsid, Here You can plan you week with ease by following 3 simple Steps.</h4>
             <ul>
             <h4>Step 1</h4>
-            <li>Make a acationt easy and fast account <a href="/sign_up">Here</a> and get to action</li>
+            <li>Make a acationt easy and fast account 
+                <a href="{{ url_for('register') }}">Here</a> and get to action</li>
            <h4>step 2</h4>
            <li>click on the Add new plan Button and Add your and by filling in some form like <br> 
            what are you doing,what day are du doing it and when are going to do it.   </li>
@@ -23,7 +24,14 @@
         </div>
     </div>
     
-</div>
+    <div class="video-container">
+
+        <iframe width="853" height="480" 
+         src="https://www.youtube.com/embed/h_P-mrt8doE" frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+    
+
 
 <div>
 </div>
@@ -37,36 +45,3 @@
 	</div>
 </div>
 {% endblock %}
-<form action="{{ url_for('add_task') }}" method="POST">
-                <div class="form-group">
-                <label for="plans_name">What's the plan</label>
-                    <input id="task_title" name="task_title" type="text" class="form-control" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                <label for="describeong_the_week_plan">Describ the week plan or Task to do </label>
-                    <textarea id="task_info" name="task_info" type="text" class="form-control" placeholder="Extra Information" required > </textarea>
-                </div>
-               
-                <div class="form-group">
-                    <div class="datepicker date input-group">
-                        <input type="text" class="form-control" id="task_due" name="task_due" placeholder="Due date" required>
-                        <div class="input-group-append">
-                            <span class="input-group-text px-4 calender-icon"><i class="far fa-calendar-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <input class="task-btn sign-in-btn title-margin-top" type="submit" value="Add Task">
-            </form>
-        </div>
-        
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 text-center standard-box lower-box-margin responsive-lower-margin">
-            <h4 class="smaller-heading">Return to My Plans</h4>   
-            <a class="btn standard-sign-up-btn" id="redirect-overview" href="{{url_for('overview')}}">My Tasks</a>
-        </div>
-    </div>
-</div>

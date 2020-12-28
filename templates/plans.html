@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- A wellcome masseage to all the user if not logged in. -->
+    {% if session.user %}
+        <h3 class="center-align">
+            All Plans    
+        </h3>    
+    {% else %}
+         <h3 class="center-align">
+            Welcome to Plan Manger
+        </h3>
+    {% endif %}
+
+
+ <!-- Shows all the plans in the Databas using a for loop-->
+    <ul class="collapsible popout ">
+        {% for plan in plans %}
+        <li>
+            {% if session.user|lower == plan.created_by|lower %}
+            <div class="collapsible-header white-text light-blue darken-3 text-shadow bg-shadow">
+                <div class="col s3 ">
+                    <i class="fas fa-caret-down right"></i>
+                    <!-- Modal Trigger -->
+                    <a href="#delete-plan{{ plan._id }}" class="waves-effect modal-trigger
+                    waves-light btn-small green accent-4 bg-shadow ">Done</a>
+
+                    <a href="{{ url_for('edit_plan', plan_id=plan._id) }}" class="waves-effect waves-light btn-small light-blue darken-1 bg-shadow">Edit</a>
+                
+                </div>
+                 <!-- Modal Structure -->
+                    <div id="delete-plan{{ plan._id }}" class="modal left">
+                        <div class="modal-content">
+                        <h4>Delate  Plan</h4>
+                        <p>
+                         Are you sure you want to delete this Plan?
+                        </p>
+                        </div>
+                        <div class="modal-footer">
+                        <a
+                         href="{{ url_for('get_plans') }}" class="modal-close waves-effect waves-light btn-small red bg-shadow"> no
+                        </a>
+                        <a
+                         href="{{ url_for('delete_plan', plan_id=plan._id) }}" class="modal-close waves-effect
+                         waves-light btn-small green accent-4 bg-shadow ">yes
+                        </a>
+                         
+                        </div>
+                    </div>
+                <div class="col s9">
+                    <strong>{{ plan.plan_name }}</strong>:  {{ plan.due_date }}
+                    {% if plan.is_urgent == "on" %}
+                        <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
+                            data-position="right" data-tooltip="MUST DO!"></i>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="collapsible-body bg-shadow">
+                <strong>{{ plan.category_name }} </strong>
+                <p> {{plan.plan_description }} </p>
+                <p><em>By:{{ plan.created_by}}</em></p>
+
+            </div>
+
+        </li>
+        {% endif %}
+       {% endfor %} 
+  </ul>
+
+    <!-- If the user is not logg in tips the user to login or 
+        regsiter to add plans -->
+    {% if session.user %}
+        <div class=" margin center-align">
+            <a href="{{ url_for('add_plan') }}" class="bg-shadow  btn-large green">
+            Add new Plan
+            </a>
+        </div> 
+    {%else%}
+    <div class=" margin center-align">
+            <a href="{{ url_for('login') }}" class="bg-shadow  btn-large green">
+                Login to Add plans 
+            </a>
+            <a href="" class="bg-shadow  btn-large green">
+                Or  
+            </a>
+             <a href="{{ url_for('register') }}" class="bg-shadow  btn-large green">
+                register to Login
+            </a>
+        </div> 
+    {% endif %}
+
+
+
+{% endblock %}

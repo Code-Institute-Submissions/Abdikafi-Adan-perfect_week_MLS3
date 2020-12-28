@@ -1,232 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Roboto:wght@100;300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap');
-/*----------------------------------------------------------------------------### START OF: General project styles ### */
-
-html,
-body {
-    margin:0;
-    padding:0;
-    height:100%;
-background: #fafafa;
-
-}
-
-
-/*ID used to stick footer to bottom of all html pages*/
-#container {
-    min-height:100%;
-    position:relative;
-}
-
-
-.title-margin-top {
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
-.standard-box {
-    
-    margin-bottom: 50px;
-    padding-bottom: 10px;
-}
-
-.lower-box-margin {
-    margin-top: 20px;
-    position: inherit;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.flash-messages{
-    padding: 1% 0% 1% 2%;
-    background-color: rgb(125, 133, 127);
-    color: rgb(19, 17, 19);
-    font-family: 'Lora', serif;
-    font-weight: 300;
-}
-
-/*----------------------------------------------------Font styling*/
-
-.standard-heading {
-    color: #3A2E39;
-    font-family: 'Quicksand', 'sans-serif';
-    font-weight: 300;
-    font-size: 30px;
-    line-height: 45px;
-    text-align: center;
-}
-
-.smaller-heading {
-    color: #3A2E39;
-    font-family: 'Lora', serif;
-    font-style: normal;
-    font-weight: 200;
-    font-size: 25px;
-    line-height: 45px;
-}
-
-.share-title {
-    font-family: 'Lora', serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: #3A2E39;
-    padding-left: 3px;
-    padding-right: 3px;
-    margin-top: 20px;
-    margin-bottom: 0px;
-}
-
-.share-text {
-    font-family: 'Lora', serif;
-    font-size: 15px;
-    font-weight: 300;
-    color: #3A2E39;
-    padding-left: 3px;
-    padding-right: 3px;
+body { 
+    background-color: #f1f6f7;
 } 
-
-.list-title {
-    color: #3A2E39;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-size: 23px;
-    line-height: 45px;
+nav{
+    margin-bottom: 40px;
+}
+.text-shadow {
+    text-shadow: 3px 3px  2px rgba(0, 0, 0, 0.8);
+}
+.bg-shadow{
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .5); 
 }
 
-.list-text {
-    color: #3A2E39;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-size: 20px;
-    line-height: 30px;
+.flashes h4 {
+    line-height: 2;
 }
 
-
-/*----------------------------------------------------Button styling*/
-
-.standard-sign-up-btn {
-    background-color: rgb(42, 240, 108);
-    border: 1px solid rgb(8, 7, 1);
-    color: rgb(17, 17, 16);
-    border-radius: 50px;
-    font-family: 'Lora', serif;
-    font-size: 1rem;
-    font-weight: 500;
+.margin {
+    margin: 25px;
+}
+.collapsible-body {
+    background-color: #ffffff;
 }
 
-.sign-in-btn {
-    background-color: rgb(14, 192, 73);
-    color: rgb(17, 17, 17);
-    border: 1px solid rgb(8, 7, 1);
-    border-radius: 20px;
-    font-family: 'Lora', serif;
-    font-size: 1rem;
-    font-weight: 500;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 95px;
+.btn-small { 
+    margin: 5px;
+
+}
+.bg-shadow .btn-small {
+    box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, .5); 
 }
 
-#redirect-signin-btn {
-    width: 125px;
+.collapsible-header .col strong {
+    margin: 5 px;
+    line-height: 42px;
 }
 
+.modal {
+    background-color: black;
+    color:  white;
 
-
-
-.task-btn {
-    color: rgb(247, 192, 14);
-    border-radius: 20px;
-    font-family: 'Lora', serif;
-    font-size: 1rem;
-    font-weight: 500;
-    min-width: 60px;
-    text-align: center;
-    display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
 }
 
-.expand-btn {
-    color: #85ADD6;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    vertical-align: unset;
-    font-size: 25px;
-    text-decoration-style: none;
-}
-
-
-.complete-btn {
-    background-color: rgb(112, 240, 38);
-    border: 1px solid rgb(112, 240, 38);
-}
-
-
-
-.edit-btn {
-    background-color: rgb(228, 241, 45);
-    border: 1px solid rgb(228, 241, 45);
-}
-
-
-.delete-btn {
-    background-color: rgb(228, 8, 8);
-    border: 1px solid rgb(228, 8, 8);
-}
-
-
-
-.complete-btn-modal {
-    background-color: rgb(112, 240, 38);
-    border: 1px solid  rgb(112, 240, 38);
-    color: #fff;
-}
-
-.delete-btn-modal {
-    background-color: rgb(182, 9, 9);
-    border: 1px solid rgb(182, 9, 9);
-    color: #fff;
-}
-/*----------------------------------------------------Navbar styling*/
-
-.logo-design {
-    font-family: 'Lora', serif;
-    font-size: 35px;
-    font-weight: 600;
-    color:#212529;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.navbar-bg {
-    opacity: 100%;
-    min-height: 100px;
-    background-color: #79828c;
-}
-
-
-
-.navbar-light .navbar-nav .nav-link {
-    font-family: 'Lora', serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: #08090a;
-    padding-left: 3px;
-    padding-right: 3px;
-}
-
-.active-menu {
-    border-bottom: 2px solid rgb(7, 6, 0);
-    padding-bottom: 0.5px ;
+.video-container{
 }
 
 /*----------------------------------------------------Footer styling*/
@@ -276,172 +91,4 @@ transition: all 0.35s ease-in-out;
     font-family: "Exo", sans-serif;
     font-weight: 300;
     color: #fafafa;
-}
-/*----------------------------------------------------------------------------### START OF: index.html ### */
-
-
-.main-titles {
-    font-family: 'Lora', serif;
-    font-style: normal;
-    font-weight: 100;
-    font-size: 30px;
-    line-height: 56px;
-    z-index:1;
-	margin-right: -300px;
-}
-
-.sm-screen-divider {
-    display: none;
-    width:200px;
-}
-.carousel-header {
-    margin-top: 80px;
-    margin-bottom: 10px;
-}
-
-.sm-screen-steps {
-    display: none;
-}
-
-/*----------------------------------------------------------------------------### START OF: signin.html & signup.html ### */
-
-.form-control:focus{   
-    border-color: #A7E8BD;
-    box-shadow: 0 1px 1px #A7E8BD inset, 0 0 8px #A7E8BD;
-    outline: 0 none;
-}
-.has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
-
-.form-control-newuser:focus {
-    border-color: #EFB7B9;
-    box-shadow: 0 1px 1px #EFB7B9 inset, 0 0 8px #EFB7B9;
-    outline: 0 none;
-}
-
-.sign-up-img{
-    max-height: 450px;
-    margin-top: 50px;
-}
-
-.datepicker table tr td.today {
-    color: #F9F6EC !important;
-    background-color: #A7E8BD !important;
-    border-color: #A7E8BD !important;
-}
-
-.calender-icon {
-    cursor: pointer;
-}
-
-/*----------------------------------------------------------------------------### overview.html ### */
-
-ul p {
-    margin-bottom: 0px;
-}
-
-.card {
-    border: none;
-}
-
-.btn:focus {
-    outline: 0;
-    box-shadow: none;
-}
-
-
-.task-display {
-    display: inline-block;
-}
-
-.fa-check:before, .fa-chevron-down:before {
-    margin-right: 10px;
-}
-
-.complete-tasks {
-    color: rgb(12, 175, 66);
-    font-size: 25px;
-}
-
-
-.remove-bullets{
-    list-style: none; 
-}
-/*----------------------------------------------------------------------------### updatetasks.html ### */
-
-.form-control-edit:focus {
-    border-color: #FFC885;
-    box-shadow: 0 1px 1px #FFC885 inset, 0 0 8px #FFC885;
-    outline: 0 none;
-}
-
-/*----------------------------------------------------General app media queries*/
-
-@media screen and (max-width: 422px){
-    .responsive-lower-margin {
-        margin-bottom: 250px;
-    }
-}
-
-@media screen and (max-width: 767px){
-    .active-menu{
-        border: none;
-        color: rgb(2, 17, 7) ;
-    }
-    .nav-item {
-        text-align: right;
-    }
-    .navbar-nav {
-        float: right;
-    }
-}
-
-
-@media screen and (max-width: 767px){
- 
-    .sm-screen-steps {
-    display: inline-block !important;
-    border: 6px solid rgb(5, 6, 7);
-    padding-bottom: 10px;
-    padding-top: 10px;
-    }
-}
-
-@media screen and (max-width: 575px){
-    .smallest-screens-padding {
-        padding-left: 0px;
-    }
-
-    .sm-screen-divider {
-        display: block;
-    }
-}
-
-@media screen and (max-width: 767px){
-    .overview-padding-sm-screens{
-        padding-left: 0px;
-    }
-
-    .overview-image {
-    margin-top: 50px;
-    }
-}
-
-@media screen and (max-width: 991px){
-.overview-image {
-    margin-top: 50px;
-    }
-}
-
-
-@media screen and (max-width: 767px){
-    .task-image{
-        margin-top: 50px;
-    }
-}
-
-@media screen and (max-width: 767px){
-    .alternative-prompt{
-        margin-top: 50px;
-        margin-bottom: 30px;
-    }
 }

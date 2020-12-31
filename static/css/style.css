@@ -1,16 +1,37 @@
 body { 
-    background-color: #f1f6f7;
+    background-image: url("https://echo360.com/wp-content/uploads/2018/08/iStock-916563360.jpg" );
+    background-repeat: space;
+    background-attachment: fixed;
+    background-position: center;
 } 
-nav{
-    margin-bottom: 40px;
+
+.card .card-title {
+    font-size: 30px;
+    font-weight: 300;
 }
+p {
+    font-size: 20px;
+    
+}
+
+nav{    
+    margin-bottom: 25px;
+}
+div ul a {
+    color: #000;
+    font-size: 20px;
+}
+
 .text-shadow {
     text-shadow: 3px 3px  2px rgba(0, 0, 0, 0.8);
 }
 .bg-shadow{
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .5); 
 }
-
+nav .brand-logo {
+    right: 50%;
+    color: #000;
+}
 .flashes h4 {
     line-height: 2;
 }
@@ -40,55 +61,14 @@ nav{
     color:  white;
 
 }
-
-.video-container{
+.overlay {
+    background-color: rgba(170, 165, 165, 0.56);
 }
-
-/*----------------------------------------------------Footer styling*/
-
-
-
-footer {
-    
-    color: #fafafa;
-    min-height: 120px;
-    position:absolute;
+@media only screen and (max-width: 1000px) {
   
-    width:100%;
-    margin:0; 
-    background-color: #343a40;
+    nav .brand-logo {
+    right: 80%;
+    color: #000;
+}
+  }
 
-}
-
-.i-margin{
-    margin-right: 10px;
-}
-.socail-links{
-    padding-bottom: 15px;   
-    margin-right: 10px;
-}
-
-.socail-links li a i {
-width: 32px;
-height: 32px;
-padding: 12px 0;
-border-radius: 50%;
-font-size: 13px;
-line-height: 7px;
-text-align: center;
-color: #fafafa;
-background: #8f8f8f;
-transition: all 0.35s ease-in-out;
--moz-transition: all 0.35s ease-in-out;
--webkit-transition: all 0.35s ease-in-out;
--o-transition: all 0.35s ease-in-out;
-
-}
-.socail-links li a i:hover{
-    background: #e84610;
-}
-.general-sub{
-    font-family: "Exo", sans-serif;
-    font-weight: 300;
-    color: #fafafa;
-}

@@ -104,6 +104,9 @@ def logout():
 @app.route("/add_plan",  methods=["GET", "POST"])
 def add_plan():
     # handels the Post resquset from the form in add_plan html
+    if not session:
+        return redirect(url_for('get_plans'))
+
     if request.method == "POST":
         is_urgent = "on" if request.form.get("is_urgent") else "off"
         plan = {
@@ -124,6 +127,8 @@ def add_plan():
 
 @app.route("/edit_plan/<plan_id>", methods=["GET", "POST"])
 def edit_plan(plan_id):
+    if not session:
+        return redirect(url_for('get_plans'))
     # handels the Post resquset to upddate the form
     if request.method == "POST":
         is_urgent = "on" if request.form.get("is_urgent") else "off"
@@ -157,6 +162,8 @@ def delete_plan(plan_id):
 
 @app.route('/get_categories')
 def get_categories():
+    if not session:
+        return redirect(url_for('get_plans'))
     categories = mongo.db.categories.find().sort("category_name", 1)
 
     return render_template("categories.html", categories=categories)
@@ -164,6 +171,9 @@ def get_categories():
 
 @app.route('/add_category', methods=["GET", "POST"])
 def add_category():
+    if not session:
+        return redirect(url_for('get_plans'))
+
     if request.method == "POST":
         category = {
             "category_name": request.form.get("category_name")
@@ -177,6 +187,8 @@ def add_category():
 
 @app.route('/edit_category/<category_id>', methods=["GET", "POST"])
 def edit_category(category_id):
+    if not session:
+        return redirect(url_for('get_plans'))
 
     if request.method == "POST":
         update = {

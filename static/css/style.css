@@ -29,7 +29,7 @@ div ul a {
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .5); 
 }
 nav .brand-logo {
-    
+    margin-left: 20px;
     color: #000;
 }
 .flashes h4 {
@@ -65,6 +65,12 @@ nav .brand-logo {
     background-color: rgba(170, 165, 165, 0.56);
 }
 
+@media only screen and (max-width: 992px){
+nav .brand-logo {
+    left: 80%;
+   
+}
+}
 @media only screen and (max-width: 992px){
 nav .brand-logo {
     left: 50%;

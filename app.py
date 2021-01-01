@@ -38,7 +38,6 @@ def get_plans():
     return render_template("plans.html", plans=plans)
 
 
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -92,18 +91,6 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
-
-
-# @app.route("/profile/<username>", methods=["GET", "POST"])
-# def profile(username):
-#     # graps the session user's username from db
-#     username = mongo.db.users.find_one(
-#                         {"username": session["user"]})["username"]
-
-#     if session["user"]:
-#         return render_template("profile.html", username=username)
-
-#     return redirect(url_for("login"))
 
 
 @app.route("/logout")

@@ -7,6 +7,10 @@ The Perfect week is for here to make week plans and the task more manageable and
 ## UX
 The UX was made to make following the design easy and simple to understand by keeping the features to the minimum need for the CRUD operations and CRUD stands for create, read, update, and delete are the four basic functions of persistent storage. Alternate words are sometimes used when defining the four basic functions of CRUD, such as retrieve instead of read, modify instead of update, or destroy instead of delete.
 
+#### To test the site as a superuser, you can use the following credentials to login:
+* Username: Admin101
+* Password: admin101 
+
 ## User Story
 User Questions that the perfect week would answers:
 
